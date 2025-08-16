@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethigrow Consulting</title>
+  <link rel="icon" type="image/png" href="./Ethigrow Consulting llpp.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop class="video-background" id="bgVideo">
+    <source src="./219130.mp4.mp4" type="video/mp4">
+  </video>
+
+  <div class="fade-overlay" id="fadeOverlay"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo"><img src="./Ethigrow Consulting llpp.png" alt="Ethigrow"></div>
+  </div>
+
+  <!-- Clock Section -->
+  <div class="clock-container" id="clockSection">
+    <div class="clock">
+      <!-- Clock lines -->
+      <div class="line" style="transform: rotate(0deg);"></div>
+      <div class="line" style="transform: rotate(30deg);"></div>
+      <div class="line" style="transform: rotate(60deg);"></div>
+      <div class="line" style="transform: rotate(90deg);"></div>
+      <div class="line" style="transform: rotate(120deg);"></div>
+      <div class="line" style="transform: rotate(150deg);"></div>
+      <div class="line" style="transform: rotate(180deg);"></div>
+      <div class="line" style="transform: rotate(210deg);"></div>
+      <div class="line" style="transform: rotate(240deg);"></div>
+      <div class="line" style="transform: rotate(270deg);"></div>
+      <div class="line" style="transform: rotate(300deg);"></div>
+      <div class="line" style="transform: rotate(330deg);"></div>
+      <div class="second-hand" id="secondHand"></div>
+
+      <!-- Text inside clock -->
+      <div class="clock-text">
+        <p>OUR NEW SITE IS</p>
+        <h2>COMING<br>SOON</h2>
+        <p>STAY TUNED!</p>
+      </div>
+    </div>
+    <div class="scroll-down" id="scrollDown"><i class="fas fa-chevron-down"></i></div>
+  </div>
+
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <a href="https://www.instagram.com/ethigrow.in?igsh=MTllb3FwNHB0YjNzYQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="http://www.linkedin.com/in/ethigrow-consultancy-services-llp-b03b1b37a" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <!-- About Us -->
+  <div class="section" id="about">
+    <h2>ABOUT US</h2>
+    <h4>Ethigrow – Growing business, Ethically!!!</h4>
+    <p>
+      We empower businesses by delivering smart, reliable, and scalable solutions across compliance, accounting, finance, and legal advisory.<br>
+      By handling the back-end complexities, we give you the freedom to focus on building your vision and achieving lasting success.<br>
+      Stay tuned for our official launch!
+    </p>
+
+    <!-- Services -->
+    <h2>OUR SERVICES</h2>
+    <div class="services">
+      <div class="service-card">Virtual CFO</div>
+      <div class="service-card">Legal Support</div>
+      <div class="service-card">Tax & Regulatory</div>
+      <div class="service-card">Global Expansion Assistance</div>
+    </div>
+
+    <!-- Subscribe -->
+    <div class="subscribe-box">
+      <h3>Subscribe to be the first to know about our launch</h3>
+      <form class="subscribe-form" id="subscribeForm">
+        <input type="email" placeholder="Enter your email" required id="subscriberEmail">
+        <button type="submit" id="subscribeBtn">Subscribe Now</button>
+      </form>
+      <div class="checkbox">
+        <input type="checkbox" id="newsletter" required>
+        <label for="newsletter">Yes, subscribe me to your newsletter. *</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Button -->
+  <div id="chatButton"><i class="fas fa-robot"></i></div>
+
+  <!-- Chat Box -->
+  <div id="chatBox">
+    <div class="chatHeader">
+      <span>Ethigrow Bot</span>
+      <button id="closeChat">&times;</button>
+    </div>
+    <div class="chatMessages" id="chatMessages">
+      <div class="chatMessage botMsg">Hey there 👋, how can I help you today?</div>
+      <div class="chatMessage cardMsg" id="welcomeCardContainer"></div>
+    </div>
+    <div class="chatInput">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+    emailjs.init("N_tycP7ckvgw26Gi5");
+
+    document.getElementById('subscribeForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        const email = document.getElementById('subscriberEmail').value;
+        const newsletterChecked = document.getElementById('newsletter').checked;
+
+        if (!newsletterChecked) {
+            alert('Please agree to subscribe to the newsletter.');
+            return;
+        }
+
+        emailjs.send('service_spposcv', 'template_6wst3wf', {
+            subscriber_email: email
+        })
+        .then(function() {
+            alert('Thank you for subscribing!');
+        }, function(err) {
+            console.error(err);
+            alert('Subscription failed. Please try again.');
+        });
+    });
+});
+</script>
+
+</body>
+</html>
